@@ -2,11 +2,13 @@ lockfileVersion: 5.4
 
 specifiers:
   '@trpc/client': ^10.19.1
+  '@trpc/server': ^10.19.1
   typescript: ^4.9.3
   vite: ^4.2.0
 
 dependencies:
-  '@trpc/client': 10.19.1
+  '@trpc/client': 10.19.1_@trpc+server@10.19.1
+  '@trpc/server': 10.19.1
 
 devDependencies:
   typescript: 4.9.5
@@ -212,10 +214,16 @@ packages:
     dev: true
     optional: true
 
-  /@trpc/client/10.19.1:
+  /@trpc/client/10.19.1_@trpc+server@10.19.1:
     resolution: {integrity: sha512-H61dIgoAjiA7/SfuHlUAsqshhaxOSSRFyEfaoBwYvXzLyno+fvQRUXvxpsC4A8IsDuNX2pxiggAK8AwTNKqIzg==}
     peerDependencies:
       '@trpc/server': 10.19.1
+    dependencies:
+      '@trpc/server': 10.19.1
+    dev: false
+
+  /@trpc/server/10.19.1:
+    resolution: {integrity: sha512-LAa8BQhMYJL+GU28cigOPKlEogCEBeff1wIKflnUj34ou1ythwTboe7Mi6rjDW3Q9EasP7s9YmqRv9Fkp8fL4Q==}
     dev: false
 
   /esbuild/0.17.15:

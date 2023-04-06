@@ -1,4 +1,5 @@
 import { t } from '../trpc';
+import { userRouter } from './users';
 
 const router = t.router;
 const publicProcedure = t.procedure;
@@ -16,5 +17,5 @@ export const appRouter = router({
         console.log(`Client says: ${req.input}`);
         return true;
     }),
+    users: userRouter,
 });
-

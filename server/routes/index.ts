@@ -1,4 +1,4 @@
-import { t } from '../trpc';
+import { adminProcedure, t } from '../trpc';
 import { userRouter } from './users';
 
 const router = t.router;
@@ -9,13 +9,14 @@ export const appRouter = router({
         return 'Hi!';
     }),
     logToServer: publicProcedure.input((v) => {
-        if (typeof v !== 'string') {
-            throw new Error('Not a string');
-        }
+        if (typeof v !== 'string') throw new Error('Not a string');
         return v;
     }).mutation((req) => {
         console.log(`Client says: ${req.input}`);
         return true;
+    }),
+    secretStuff: adminProcedure.query(({ ctx }) => {
+        return 'Data that only admins can see';
     }),
     users: userRouter,
 });
